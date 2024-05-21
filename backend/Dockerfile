@@ -1,13 +1,17 @@
-FROM python:3.10-slim-bullseye
+FROM python:3.10-bookworm
 
 # Create and work in code folder
-WORKDIR /backend
+WORKDIR /workspace/
 
 RUN python -m venv /venv
 ENV PATH="/venv/bin:$PATH"
 
-COPY requirements.txt .
+COPY . .
 
+# Install pre-commit
 RUN pip install -r requirements.txt
+RUN pre-commit install
 
-ADD . .
+# Install app dependencies
+WORKDIR /workspace/backend/
+RUN pip install -r requirements.txt
