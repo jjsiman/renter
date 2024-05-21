@@ -8,11 +8,12 @@ WORKDIR /workspace/
 RUN python3 -m venv /venv
 ENV PATH="/venv/bin:$PATH"
 
-COPY /frontend/package*.json /workspace/frontend/
+COPY /frontend/package.json /workspace/frontend/
+COPY /frontend/yarn.lock /workspace/frontend/
 
 WORKDIR /workspace/frontend/
 
-RUN npm install
+RUN yarn
 
 WORKDIR /workspace/
 
