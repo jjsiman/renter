@@ -1,8 +1,8 @@
-import { fileURLToPath, URL } from "node:url";
+import { fileURLToPath, URL } from 'node:url';
 import { resolve } from 'path';
 
-import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,12 +10,12 @@ export default defineConfig({
   root: resolve(__dirname, 'src'),
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src/js", import.meta.url)),
-      "styles": fileURLToPath(new URL('./src/scss', import.meta.url)),
+      '@': fileURLToPath(new URL('./src/js', import.meta.url)),
+      'styles': fileURLToPath(new URL('./src/scss', import.meta.url)),
     },
   },
   server: {
-    host: "0.0.0.0",
+    host: '0.0.0.0',
     port: 3000,
     watch: {
       usePolling: true,
