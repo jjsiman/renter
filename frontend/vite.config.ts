@@ -20,5 +20,14 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
+    proxy: {
+      '/api': {
+        target: 'http://backend:8000/',
+        changeOrigin: true,
+        secure: false,
+        ws: true,
+        rewrite: (path: string) => path.replace(/^\/api/, ''),
+      }
+    }
   },
 });
