@@ -4,19 +4,7 @@
 @import "bootstrap/scss/functions";
 
 // 2. Include any default variable overrides here
-$font-family-base: Hind;
-$display-font-family: Montserrat;
-
-$primary: #d76340;
-$secondary: #008758;
-$success: #59a500;
-$info: #306ca1;
-$warning: #ffbf63;
-$danger: #f20064;
-$light: #daedf6;
-$dark: #091f38;
-
-$transition-collapse: height 2s ease;
+@import "./bootstrap_overrides";
 
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
 @import "bootstrap/scss/variables";
