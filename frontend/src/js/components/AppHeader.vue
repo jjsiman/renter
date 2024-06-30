@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CollapseContent from '@/components/CollapseContent.vue';
+import AuthActions from '@/components/AuthActions.vue';
 </script>
 
 <template>
@@ -17,6 +18,9 @@ import CollapseContent from '@/components/CollapseContent.vue';
                                 <RouterLink class="nav-link" :to="{ name: 'home' }">Home</RouterLink>
                             </li>
                         </ul>
+                        <div class="d-flex">
+                            <AuthActions />
+                        </div>
                     </template>
                 </CollapseContent>
             </div>
