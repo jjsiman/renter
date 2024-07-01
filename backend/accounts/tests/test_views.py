@@ -17,7 +17,7 @@ class LoginViewTests(APITestCase):
         url = reverse("login")
 
         data = {"email": email, "password": password}
-        response = self.client.post(url, data, format="json")
+        response = self.client.post(url, data)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertTrue(response.data["token"])
@@ -36,3 +36,51 @@ class LoginViewTests(APITestCase):
         self.assertTrue(response.status_code, status.HTTP_204_NO_CONTENT)
         with self.assertRaises(AuthToken.DoesNotExist):
             instance.refresh_from_db()
+
+
+class UserProfileViewSet(APITestCase):
+    def setUp(self):
+        self.password = "test"
+        self.email = "test@example.com"
+        self.user = UserFactory(email=self.email)
+        self.user.set_password(self.password)
+        self.user.save()
+
+        self.client.force_authenticate(user=self.user)
+        self.url = reverse("profile")
+
+    def test_get_profile(self):
+        response = self.client.get(self.url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["email"], self.email)
+
+    def test_user_can_change_email(self):
+        new_email = "abc@example.com"
+        response = self.client.patch(self.url, {"email": new_email})
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data["email"], new_email)
+
+        self.user.refresh_from_db()
+        self.assertEqual(self.user.email, new_email)
+
+    def test_user_can_change_password(self):
+        new_password = "abc123"
+        response = self.client.patch(
+            self.url, {"password": self.password, "new_password": new_password}
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.user.refresh_from_db()
+        self.assertTrue(self.user.check_password(new_password))
+
+    def test_user_cannot_change_password_without_current_password(self):
+        new_password = "abc123"
+        response = self.client.patch(
+            self.url, {"password": "error", "new_password": new_password}
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.user.refresh_from_db()
+        self.assertTrue(self.user.check_password(self.password))
