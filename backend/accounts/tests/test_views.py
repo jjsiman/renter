@@ -3,6 +3,7 @@ from knox.models import AuthToken
 from rest_framework import status
 from rest_framework.test import APITestCase
 
+from ..models import User
 from .factories import UserFactory
 
 
@@ -38,7 +39,7 @@ class LoginViewTests(APITestCase):
             instance.refresh_from_db()
 
 
-class UserProfileViewSet(APITestCase):
+class UserProfileViewSetTests(APITestCase):
     def setUp(self):
         self.password = "test"
         self.email = "test@example.com"
@@ -84,3 +85,17 @@ class UserProfileViewSet(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.user.refresh_from_db()
         self.assertTrue(self.user.check_password(self.password))
+
+
+class SignUpViewTests(APITestCase):
+    def test_can_create_new_user(self):
+        url = reverse("register")
+        email = "test@example.com"
+        password = "fbiqnegr-145rcdqwre"
+        response = self.client.post(url, {"email": email, "password": password})
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        user = User.objects.get(email=email)
+        self.assertTrue(user)
+        self.assertTrue(user.check_password(password))
