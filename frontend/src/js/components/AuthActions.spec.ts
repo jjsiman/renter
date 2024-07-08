@@ -36,7 +36,7 @@ test('should render', () => {
   expect(wrapper.exists()).toBe(true);
 });
 
-test('login is shown if a user is unauthenticated', async () => {
+test('login and signup are shown if a user is unauthenticated', async () => {
   const wrapper = createWrapper();
   const auth = useAuth();
   // @ts-expect-error: getters are writable in tests
@@ -44,9 +44,10 @@ test('login is shown if a user is unauthenticated', async () => {
   await nextTick();
 
   expect(wrapper.find('[data-test="login"]').exists()).toBe(true);
+  expect(wrapper.find('[data-test="signup"]').exists()).toBe(true);
 });
 
-test('logout is shown if a user is authenticated', async () => {
+test('logout and profile are shown if a user is authenticated', async () => {
   const wrapper = createWrapper();
   const auth = useAuth();
   // @ts-expect-error: getters are writable in tests
@@ -54,6 +55,7 @@ test('logout is shown if a user is authenticated', async () => {
   await nextTick();
 
   expect(wrapper.find('[data-test="logout"]').exists()).toBe(true);
+  expect(wrapper.find('[data-test="profile"]').exists()).toBe(true);
 });
 
 test('logging out redirects the user to the home page', async () => {

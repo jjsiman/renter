@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { flushPromises, mount } from '@vue/test-utils';
 import { Router, createRouter, createWebHistory } from 'vue-router';
 
 import LoginPage from '@/pages/LoginPage.vue';
@@ -8,7 +8,6 @@ import { createTestingPinia } from '@pinia/testing';
 import { useAuth } from '@/stores/auth';
 
 import { routes } from '@/routes';
-import { nextTick } from 'vue';
 
 let router: Router;
 
@@ -68,7 +67,7 @@ test('login error is shown to user', async () => {
   await wrapper.find('#email').setValue('test@example.com');
   await wrapper.find('#password').setValue('test');
   await wrapper.find('form').trigger('submit.prevent');
-  await nextTick();
+  await flushPromises();
 
   expect(wrapper.find('#validationFeedback').exists()).toBe(true);
 });
@@ -83,4 +82,20 @@ test('successful login redirects the user home', async () => {
 
   expect(push).toHaveBeenCalledOnce();
   expect(push).toHaveBeenCalledWith({ name: 'home' });
+});
+
+test('if redirect query param is given, successful login redirects the user there', async () => {
+  const wrapper = createWrapper();
+  await router.push('/?next=profile');
+
+  const push = vi.spyOn(router, 'push');
+
+  expect(wrapper.find('[data-test="redirect"]').exists()).toBe(true);
+
+  await wrapper.find('#email').setValue('test@example.com');
+  await wrapper.find('#password').setValue('test');
+  await wrapper.find('form').trigger('submit.prevent');
+
+  expect(push).toHaveBeenCalledOnce();
+  expect(push).toHaveBeenCalledWith('profile');
 });

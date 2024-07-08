@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
 import CardContainer from '@/components/CardContainer.vue';
@@ -8,6 +8,7 @@ import CardContainer from '@/components/CardContainer.vue';
 import { useAuth } from '@/stores/auth';
 
 const { login } = useAuth();
+const route = useRoute();
 const router = useRouter();
 
 const error = ref('');
@@ -19,6 +20,10 @@ async function onLogin() {
   error.value = '';
   try {
     await login(email.value, password.value);
+
+    if (route.query.next) {
+      return router.push(route.query.next as string);
+    }
     router.push({ name: 'home' });
   }
   catch {
@@ -32,12 +37,15 @@ async function onLogin() {
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-auto p-5">
+          <div v-if="route.query.next" class="alert alert-danger" role="alert" data-test="redirect">
+            You must log in to view this page.
+          </div>
           <CardContainer>
             <form class="card-body" @submit.prevent="onLogin">
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input v-model="email" type="email" name="email" class="form-control" :class="{ 'is-invalid': error }" id="email"
-                  :aria-describedby="error ? 'validationFeedback' : undefined" required>
+                <input v-model="email" type="email" name="email" class="form-control" :class="{ 'is-invalid': error }"
+                  id="email" :aria-describedby="error ? 'validationFeedback' : undefined" required>
                 <div v-if="error" id="validationFeedback" class="invalid-feedback">
                   {{ error }}
                 </div>
