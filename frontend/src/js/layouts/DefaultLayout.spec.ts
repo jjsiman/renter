@@ -9,7 +9,7 @@ test('should render', () => {
     shallow: true
   });
 
-  expect(wrapper.exists()).toBeTruthy();
+  expect(wrapper.exists()).toBe(true);
 });
 
 test('footer can be shown', () => {

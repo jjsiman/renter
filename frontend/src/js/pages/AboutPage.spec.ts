@@ -19,5 +19,5 @@ test('should render', () => {
     }
   });
 
-  expect(wrapper.exists()).toBeTruthy();
+  expect(wrapper.exists()).toBe(true);
 });
