@@ -1,7 +1,6 @@
 import { expect, test } from 'vitest';
-import { mount } from '@vue/test-utils';
-
 import CardContainer from '@/components/CardContainer.vue';
+import { mount } from '@vue/test-utils';
 
 test('should render', () => {
   const wrapper = mount(CardContainer, {

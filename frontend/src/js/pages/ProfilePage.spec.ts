@@ -1,13 +1,11 @@
-import { test, afterEach, beforeEach, expect, vi } from 'vitest';
+import { afterEach, beforeEach, expect, test, vi } from 'vitest';
+import { createRouter, createWebHistory, Router } from 'vue-router';
 import { flushPromises, mount } from '@vue/test-utils';
-
 import axios from '@/services/axios';
-
+import { createTestingPinia } from '@pinia/testing';
 import ProfileForm from '@/components/ProfileForm.vue';
 import ProfilePage from './ProfilePage.vue';
-import { Router, createRouter, createWebHistory } from 'vue-router';
 import { routes } from '@/routes';
-import { createTestingPinia } from '@pinia/testing';
 
 const axiosMock = vi.spyOn(axios, 'get');
 

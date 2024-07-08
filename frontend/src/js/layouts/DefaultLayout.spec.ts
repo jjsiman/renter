@@ -1,8 +1,7 @@
 import { expect, test } from 'vitest';
-import { mount } from '@vue/test-utils';
-
-import DefaultLayout from '@/layouts/DefaultLayout.vue';
 import AppFooter from '@/components/AppFooter.vue';
+import DefaultLayout from '@/layouts/DefaultLayout.vue';
+import { mount } from '@vue/test-utils';
 
 test('should render', () => {
   const wrapper = mount(DefaultLayout, {

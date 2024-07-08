@@ -1,11 +1,10 @@
-import { test, beforeEach, expect, vi } from 'vitest';
-
-import { Router, createRouter, createWebHistory } from 'vue-router';
+import { beforeEach, expect, test, vi } from 'vitest';
+import { createRouter, createWebHistory, Router } from 'vue-router';
 import { isAuthenticated, routes } from '@/routes';
-import { useAuth } from '@/stores/auth';
 import { createTestingPinia } from '@pinia/testing';
-import { Pinia } from 'pinia';
 import { defineComponent } from 'vue';
+import { Pinia } from 'pinia';
+import { useAuth } from '@/stores/auth';
 
 const EmptyComponent = defineComponent({});
 

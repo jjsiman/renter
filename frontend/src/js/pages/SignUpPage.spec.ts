@@ -1,10 +1,10 @@
-import { flushPromises, mount } from '@vue/test-utils';
 import { afterEach, expect, test, vi } from 'vitest';
-import SignUpPage from './SignUpPage.vue';
-import { createTestingPinia } from '@pinia/testing';
 import { AxiosError, AxiosResponse } from 'axios';
-import { useAuth } from '@/stores/auth';
+import { flushPromises, mount } from '@vue/test-utils';
 import axios from '@/services/axios';
+import { createTestingPinia } from '@pinia/testing';
+import SignUpPage from '@/pages/SignUpPage.vue';
+import { useAuth } from '@/stores/auth';
 import { useRouter } from 'vue-router';
 
 const post = vi.spyOn(axios, 'post');

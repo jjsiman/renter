@@ -1,6 +1,5 @@
-import { afterEach, expect, test, vi } from 'vitest';
-
 import * as vueUse from '@vueuse/core';
+import { afterEach, expect, test, vi } from 'vitest';
 import axios from '@/services/axios';
 import { ref } from 'vue';
 

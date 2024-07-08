@@ -1,12 +1,9 @@
+import 'styles/styles.scss';
+import { createRouter, createWebHistory } from 'vue-router';
+import App from './App.vue';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
-import { createRouter, createWebHistory } from 'vue-router';
-
 import { routes } from './routes';
-
-import 'styles/styles.scss';
-
-import App from './App.vue';
 
 const router = createRouter({
   history: createWebHistory(),

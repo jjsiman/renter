@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-
-import DefaultLayout from '@/layouts/DefaultLayout.vue';
 import CardContainer from '@/components/CardContainer.vue';
-
+import DefaultLayout from '@/layouts/DefaultLayout.vue';
+import { ref } from 'vue';
 import { useAuth } from '@/stores/auth';
 
 const { login } = useAuth();

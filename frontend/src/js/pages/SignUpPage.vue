@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-
-import DefaultLayout from '@/layouts/DefaultLayout.vue';
-import CardContainer from '@/components/CardContainer.vue';
-import { useAuth } from '@/stores/auth';
+import { computed, ref } from 'vue';
 import axios from '@/services/axios';
-import { useRouter } from 'vue-router';
+import CardContainer from '@/components/CardContainer.vue';
+import DefaultLayout from '@/layouts/DefaultLayout.vue';
 import { isAxiosError } from 'axios';
 import type { SignupError } from '@/types/accounts';
+import { useAuth } from '@/stores/auth';
+import { useRouter } from 'vue-router';
 
 const auth = useAuth();
 const router = useRouter();

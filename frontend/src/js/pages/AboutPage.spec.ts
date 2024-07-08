@@ -1,8 +1,7 @@
 import { expect, test, vi } from 'vitest';
-import { mount } from '@vue/test-utils';
-
 import AboutPage from '@/pages/AboutPage.vue';
 import { createTestingPinia } from '@pinia/testing';
+import { mount } from '@vue/test-utils';
 
 vi.mock('vue-router', () => ({
   useRoute: vi.fn(),

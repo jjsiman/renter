@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
-import type { UserProfile } from '@/types/accounts';
-import CardContainer from '@/components/CardContainer.vue';
 import axios from '@/services/axios';
+import CardContainer from '@/components/CardContainer.vue';
+import { ref } from 'vue';
+import type { UserProfile } from '@/types/accounts';
 
 const props = defineProps<{
   user: UserProfile;

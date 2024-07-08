@@ -1,7 +1,7 @@
+import { afterEach, expect, test, vi } from 'vitest';
 import { flushPromises, mount } from '@vue/test-utils';
-import { test, afterEach, vi, expect } from 'vitest';
-import ProfileForm from '@/components/ProfileForm.vue';
 import axios from '@/services/axios';
+import ProfileForm from '@/components/ProfileForm.vue';
 
 const axiosMock = vi.spyOn(axios, 'patch');
 

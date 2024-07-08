@@ -1,9 +1,9 @@
-import globals from 'globals';
 import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import globals from 'globals';
 import pluginVue from 'eslint-plugin-vue';
 import stylistic from '@stylistic/eslint-plugin';
-import eslintConfigPrettier from 'eslint-config-prettier';
+import tseslint from 'typescript-eslint';
 
 export default [
   stylistic.configs.customize({
@@ -19,6 +19,11 @@ export default [
         parser: '@typescript-eslint/parser',
       },
     },
+    rules: {
+      'sort-imports': ['error', {
+        ignoreCase: true,
+      }]
+    }
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,

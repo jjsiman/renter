@@ -1,11 +1,9 @@
-import { setActivePinia, createPinia } from 'pinia';
-import { beforeEach, afterEach, expect, test, vi } from 'vitest';
-
-import { useAuth } from './auth';
-
 import * as vueUse from '@vueuse/core';
+import { afterEach, beforeEach, expect, test, vi } from 'vitest';
+import { createPinia, setActivePinia } from 'pinia';
 import axios from '@/services/axios';
 import { ref } from 'vue';
+import { useAuth } from '@/stores/auth';
 
 vi.useFakeTimers();
 vi.setSystemTime(new Date(2024, 1, 1));

@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-
-import ProfileForm from '@/components/ProfileForm.vue';
-import DefaultLayout from '@/layouts/DefaultLayout.vue';
 import axios from '@/services/axios';
+import DefaultLayout from '@/layouts/DefaultLayout.vue';
+import ProfileForm from '@/components/ProfileForm.vue';
 
 interface User {
   email: string;

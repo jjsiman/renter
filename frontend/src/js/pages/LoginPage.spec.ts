@@ -1,13 +1,10 @@
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
+import { createRouter, createWebHistory, Router } from 'vue-router';
 import { flushPromises, mount } from '@vue/test-utils';
-import { Router, createRouter, createWebHistory } from 'vue-router';
-
-import LoginPage from '@/pages/LoginPage.vue';
 import { createTestingPinia } from '@pinia/testing';
-
-import { useAuth } from '@/stores/auth';
-
+import LoginPage from '@/pages/LoginPage.vue';
 import { routes } from '@/routes';
+import { useAuth } from '@/stores/auth';
 
 let router: Router;
 

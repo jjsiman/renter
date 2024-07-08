@@ -1,7 +1,6 @@
-import { mount } from '@vue/test-utils';
 import { expect, test } from 'vitest';
-
 import CollapseContent from '@/components/CollapseContent.vue';
+import { mount } from '@vue/test-utils';
 
 test('should render', () => {
   const wrapper = mount(CollapseContent, {

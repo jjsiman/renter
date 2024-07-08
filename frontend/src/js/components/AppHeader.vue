@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CollapseContent from '@/components/CollapseContent.vue';
 import AuthActions from '@/components/AuthActions.vue';
+import CollapseContent from '@/components/CollapseContent.vue';
 </script>
 
 <template>

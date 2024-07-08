@@ -1,7 +1,6 @@
 import { expect, test } from 'vitest';
-import { mount } from '@vue/test-utils';
-
 import AppFooter from '@/components/AppFooter.vue';
+import { mount } from '@vue/test-utils';
 
 test('should render', () => {
   const wrapper = mount(AppFooter, {
