@@ -4,7 +4,7 @@ from django.core import exceptions
 from django.utils.translation import gettext_lazy as _
 from rest_framework import serializers
 
-from .models import User
+from accounts.models import User
 
 
 class AuthSerializer(serializers.Serializer):

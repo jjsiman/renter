@@ -3,8 +3,8 @@ from knox.models import AuthToken
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from ..models import User
-from .factories import UserFactory
+from accounts.models import User
+from accounts.tests.factories import UserFactory
 
 
 class LoginViewTests(APITestCase):

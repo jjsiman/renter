@@ -1,0 +1,5 @@
+[tool.ruff.lint]
+select = ["TID252", "I"]
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"

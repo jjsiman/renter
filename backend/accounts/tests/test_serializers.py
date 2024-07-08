@@ -1,9 +1,9 @@
 from django.test import TestCase
 from rest_framework import serializers
 
-from ..models import User
-from ..serializers import UserCreationSerializer
-from .factories import UserFactory
+from accounts.models import User
+from accounts.serializers import UserCreationSerializer
+from accounts.tests.factories import UserFactory
 
 
 class UserCreationSerializerTests(TestCase):

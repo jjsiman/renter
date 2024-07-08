@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from .models import Building
-from .serializers import BuildingSerializer
+from buildings.models import Building
+from buildings.serializers import BuildingSerializer
 
 
 class BuildingViewSet(viewsets.ModelViewSet):

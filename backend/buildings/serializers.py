@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Building
+from buildings.models import Building
 
 
 class BuildingSerializer(serializers.ModelSerializer):

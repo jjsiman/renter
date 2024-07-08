@@ -3,7 +3,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from .factories import BuildingFactory
+from buildings.tests.factories import BuildingFactory
 
 
 class BuildingViewSetTests(APITestCase):

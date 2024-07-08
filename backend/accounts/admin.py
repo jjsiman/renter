@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import GroupAdmin, UserAdmin
 from django.contrib.auth.models import Group as AuthGroup
 
-from .models import Group, User
+from accounts.models import Group, User
 
 admin.site.unregister(AuthGroup)
 

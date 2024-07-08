@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import Building
+from buildings.models import Building
 
 admin.site.register(Building)

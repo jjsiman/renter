@@ -1,5 +1,4 @@
 from django.contrib.auth import login, logout
-from django.utils.translation import gettext_lazy as _
 from knox.views import LoginView as KnoxLoginView
 from knox.views import LogoutView as KnoxLogoutView
 from rest_framework import permissions, status
@@ -7,7 +6,11 @@ from rest_framework.generics import RetrieveUpdateAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .serializers import AuthSerializer, UserCreationSerializer, UserProfileSerializer
+from accounts.serializers import (
+    AuthSerializer,
+    UserCreationSerializer,
+    UserProfileSerializer,
+)
 
 
 class LoginView(KnoxLoginView):
