@@ -4,7 +4,7 @@ import { flushPromises, mount } from '@vue/test-utils';
 import axios from '@/services/axios';
 import { createTestingPinia } from '@pinia/testing';
 import ProfileForm from '@/components/ProfileForm.vue';
-import ProfilePage from './ProfilePage.vue';
+import ProfilePage from '@/pages/ProfilePage.vue';
 import { routes } from '@/routes';
 
 const axiosMock = vi.spyOn(axios, 'get');
