@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class BuildingsConfig(AppConfig):
+class UtilsConfig(AppConfig):
     name = "utils"

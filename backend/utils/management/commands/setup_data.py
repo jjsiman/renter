@@ -5,6 +5,8 @@ from buildings.tests.factories import BuildingFactory
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 from django.db import connection, transaction
+from listings.tests.factories import ListingFactory
+from properties.tests.factories import PropertyFactory
 
 # Change the seed to see different fake data
 random.seed("renter")
@@ -31,6 +33,23 @@ class Command(BaseCommand):
         call_command("createsuperuser", "--noinput", email="admin@renter.com")
 
         self.stdout.write("2. Creating buildings...")
-        BuildingFactory.create_batch(10)
+        buildings = BuildingFactory.create_batch(10)
+
+        self.stdout.write("3. Creating properties...")
+        properties = []
+        for building in buildings:
+            units = building.units
+            stories = building.stories
+            units_per_story = units // stories
+            for u in range(units):
+                unit = (
+                    f"{(u // units_per_story) + 1}{chr(ord('A') + u % units_per_story)}"
+                )
+                property = PropertyFactory.create(building=building, unit=unit)
+                properties.append(property)
+
+        self.stdout.write("4. Creating listings...")
+        for property in properties:
+            ListingFactory(property=property)
 
         self.stdout.write("Done!")

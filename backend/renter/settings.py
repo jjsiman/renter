@@ -42,9 +42,11 @@ INSTALLED_APPS = [
     "rest_framework",
     "knox",
     "corsheaders",
+    "utils",
     "accounts",
     "buildings",
-    "utils",
+    "listings",
+    "properties",
 ]
 
 MIDDLEWARE = [
