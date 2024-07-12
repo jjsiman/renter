@@ -23,7 +23,7 @@ beforeEach(async () => {
         name: 'test',
         component: EmptyComponent,
         beforeEnter: [isAuthenticated],
-      }
+      },
     ],
   });
 

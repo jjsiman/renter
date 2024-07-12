@@ -11,14 +11,14 @@ const post = vi.spyOn(axios, 'post');
 
 vi.mock('vue-router', () => ({
   useRouter: vi.fn(() => ({
-    push: () => { }
-  }))
+    push: () => { },
+  })),
 }));
 
 const createWrapper = () => mount(SignUpPage, {
   global: {
     plugins: [createTestingPinia({ createSpy: vi.fn })],
-    stubs: ['RouterLink']
+    stubs: ['RouterLink'],
   },
 });
 
@@ -45,7 +45,7 @@ test('sign up errors are shown when the account cannot be created', async () => 
     undefined,
     undefined,
     undefined,
-    { data: { email: [message] } } as AxiosResponse
+    { data: { email: [message] } } as AxiosResponse,
   ));
   const wrapper = createWrapper();
 
@@ -67,7 +67,7 @@ test('password errors are shown if a password is invalid', async () => {
     undefined,
     undefined,
     undefined,
-    { data: { password: [message] } } as AxiosResponse
+    { data: { password: [message] } } as AxiosResponse,
   ));
   const wrapper = createWrapper();
 

@@ -97,13 +97,33 @@ function ease(t: number): number {
 </script>
 
 <template>
-    <button type="button" class="btn" :class="buttonClass" :aria-controls="id" :aria-expanded="showClass" data-test="toggle" @click="showContent = !showContent">
-        <slot name="toggle"></slot>
-    </button>
-    <Transition :css="false" @before-enter="onBeforeEnter" @enter="onEnter" @after-enter="onAfterEnter"
-        @before-leave="onBeforeLeave" @leave="onLeave" @after-leave="onAfterLeave">
-        <div :id v-show="showContent" :class="contentClassObject" data-test="content">
-            <slot name="content"></slot>
-        </div>
-    </Transition>
+  <button
+    type="button"
+    class="btn"
+    :class="buttonClass"
+    :aria-controls="id"
+    :aria-expanded="showClass"
+    data-test="toggle"
+    @click="showContent = !showContent"
+  >
+    <slot name="toggle" />
+  </button>
+  <Transition
+    :css="false"
+    @before-enter="onBeforeEnter"
+    @enter="onEnter"
+    @after-enter="onAfterEnter"
+    @before-leave="onBeforeLeave"
+    @leave="onLeave"
+    @after-leave="onAfterLeave"
+  >
+    <div
+      v-show="showContent"
+      :id
+      :class="contentClassObject"
+      data-test="content"
+    >
+      <slot name="content" />
+    </div>
+  </Transition>
 </template>

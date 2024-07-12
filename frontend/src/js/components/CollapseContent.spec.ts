@@ -5,8 +5,8 @@ import { mount } from '@vue/test-utils';
 test('should render', () => {
   const wrapper = mount(CollapseContent, {
     props: {
-      id: 'test'
-    }
+      id: 'test',
+    },
   });
 
   expect(wrapper.exists()).toBe(true);
@@ -15,7 +15,7 @@ test('should render', () => {
 test('content is shown and hidden by clicking the toggle', async () => {
   const wrapper = mount(CollapseContent, {
     props: {
-      id: 'test'
+      id: 'test',
     },
     attachTo: document.body,
   });

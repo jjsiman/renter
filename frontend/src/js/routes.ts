@@ -42,5 +42,5 @@ export const routes = [
     path: '/signup',
     name: 'signup',
     component: SignUpPage,
-  }
+  },
 ];

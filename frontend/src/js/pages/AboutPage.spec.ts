@@ -6,16 +6,16 @@ import { mount } from '@vue/test-utils';
 vi.mock('vue-router', () => ({
   useRoute: vi.fn(),
   useRouter: vi.fn(() => ({
-    push: () => {}
-  }))
+    push: () => {},
+  })),
 }));
 
 test('should render', () => {
   const wrapper = mount(AboutPage, {
     global: {
       plugins: [createTestingPinia({ createSpy: vi.fn })],
-      stubs: ['RouterLink']
-    }
+      stubs: ['RouterLink'],
+    },
   });
 
   expect(wrapper.exists()).toBe(true);

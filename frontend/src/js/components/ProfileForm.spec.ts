@@ -13,8 +13,8 @@ const createWrapper = () => mount(ProfileForm, {
   props: {
     user: {
       email: 'test@example.com',
-    }
-  }
+    },
+  },
 });
 
 test('the user can change their email', async () => {
@@ -30,7 +30,7 @@ test('the user can change their email', async () => {
   expect(axiosMock).toHaveBeenCalledWith('accounts/profile/', {
     email: 'test2@example.com',
     password: '',
-    new_password: ''
+    new_password: '',
   });
 
   expect(wrapper.find('[data-test="success"]').exists()).toBe(true);
@@ -92,6 +92,6 @@ test('all data is successfully submitted', async () => {
   expect(axiosMock).toHaveBeenCalledWith('accounts/profile/', {
     email: 'test@example.com',
     password: 'test',
-    new_password: 'test2'
+    new_password: 'test2',
   });
 });

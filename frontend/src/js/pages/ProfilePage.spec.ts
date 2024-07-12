@@ -28,7 +28,7 @@ afterEach(() => {
 const createWrapper = () => mount(ProfilePage, {
   global: {
     plugins: [router, createTestingPinia({ createSpy: vi.fn })],
-  }
+  },
 });
 
 test('loading is shown while user is loading', async () => {

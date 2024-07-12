@@ -5,7 +5,7 @@ import { mount } from '@vue/test-utils';
 
 test('should render', () => {
   const wrapper = mount(DefaultLayout, {
-    shallow: true
+    shallow: true,
   });
 
   expect(wrapper.exists()).toBe(true);

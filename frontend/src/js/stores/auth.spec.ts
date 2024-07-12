@@ -9,7 +9,7 @@ vi.useFakeTimers();
 vi.setSystemTime(new Date(2024, 1, 1));
 
 vi.mock('@vueuse/core', () => ({
-  useStorage: vi.fn()
+  useStorage: vi.fn(),
 }));
 vi.mock('@/services/axios');
 

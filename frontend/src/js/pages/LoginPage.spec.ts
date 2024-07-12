@@ -25,7 +25,7 @@ afterEach(() => {
 const createWrapper = () => mount(LoginPage, {
   global: {
     plugins: [router, createTestingPinia({ createSpy: vi.fn })],
-  }
+  },
 });
 
 test('should render', () => {

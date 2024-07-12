@@ -6,8 +6,8 @@ import { mount } from '@vue/test-utils';
 vi.mock('vue-router', () => ({
   useRoute: vi.fn(),
   useRouter: vi.fn(() => ({
-    push: () => {}
-  }))
+    push: () => {},
+  })),
 }));
 
 test('should render', () => {

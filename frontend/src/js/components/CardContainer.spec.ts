@@ -6,7 +6,7 @@ test('should render', () => {
   const wrapper = mount(CardContainer, {
     global: {
       stubs: ['RouterLink'],
-    }
+    },
   });
 
   expect(wrapper.exists()).toBe(true);

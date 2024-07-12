@@ -6,7 +6,7 @@ test('should render', () => {
   const wrapper = mount(AppFooter, {
     global: {
       stubs: ['RouterLink'],
-    }
+    },
   });
 
   expect(wrapper.exists()).toBe(true);

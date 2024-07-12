@@ -4,28 +4,47 @@ import CollapseContent from '@/components/CollapseContent.vue';
 </script>
 
 <template>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-dark sticky-top" data-bs-theme="dark">
-            <div class="container-xxl">
-                <RouterLink class="navbar-brand" :to="{ name: 'home' }"><i class="bi-house-heart me-1"></i>Renter
+  <header>
+    <nav
+      class="navbar navbar-expand-lg bg-dark sticky-top"
+      data-bs-theme="dark"
+    >
+      <div class="container-xxl">
+        <RouterLink
+          class="navbar-brand"
+          :to="{ name: 'home' }"
+        >
+          <i class="bi-house-heart me-1" />Renter
+        </RouterLink>
+        <CollapseContent
+          id="navbarCollapse"
+          button-class="navbar-toggler"
+          content-class="navbar-collapse"
+        >
+          <template #toggle>
+            <span class="visually-hidden">Toggle navigation menu</span><span
+              class="navbar-toggler-icon"
+            />
+          </template>
+          <template #content>
+            <ul class="navbar-nav me-auto">
+              <li>
+                <RouterLink
+                  class="nav-link"
+                  :to="{ name: 'home' }"
+                >
+                  Home
                 </RouterLink>
-                <CollapseContent id="navbarCollapse" button-class="navbar-toggler" content-class="navbar-collapse">
-                    <template #toggle><span class="visually-hidden">Toggle navigation menu</span><span
-                            class="navbar-toggler-icon"></span></template>
-                    <template #content>
-                        <ul class="navbar-nav me-auto">
-                            <li>
-                                <RouterLink class="nav-link" :to="{ name: 'home' }">Home</RouterLink>
-                            </li>
-                        </ul>
-                        <div class="d-flex">
-                            <AuthActions />
-                        </div>
-                    </template>
-                </CollapseContent>
+              </li>
+            </ul>
+            <div class="d-flex">
+              <AuthActions />
             </div>
-        </nav>
-    </header>
+          </template>
+        </CollapseContent>
+      </div>
+    </nav>
+  </header>
 </template>
 
 <style lang="scss">

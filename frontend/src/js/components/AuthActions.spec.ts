@@ -24,7 +24,7 @@ const createWrapper = () => mount(AuthActions, {
     plugins: [router, createTestingPinia({
       createSpy: vi.fn,
     })],
-  }
+  },
 });
 
 test('should render', () => {

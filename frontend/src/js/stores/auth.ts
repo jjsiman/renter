@@ -45,6 +45,6 @@ export const useAuth = defineStore('auth', () => {
     login,
     logout,
     isAuthenticated,
-    $reset
+    $reset,
   };
 });

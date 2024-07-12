@@ -27,7 +27,7 @@ async function onSubmit() {
   loginError.value = false;
   signupErrors.value = {
     email: [],
-    password: []
+    password: [],
   };
 
   if (repeatPassword.value !== password.value) {
@@ -62,41 +62,111 @@ async function onSubmit() {
       <div class="row justify-content-center">
         <div class="col-auto p-5">
           <CardContainer>
-            <div v-if="loginError" class="card-body text-center" data-test="loginError">
-              <p>Your account was created but we are unable to log you in at this time. Please try to
-                login again.</p>
-              <RouterLink class="btn btn-primary" :to="{ name: 'login' }">Login</RouterLink>
+            <div
+              v-if="loginError"
+              class="card-body text-center"
+              data-test="loginError"
+            >
+              <p>
+                Your account was created but we are unable to log you in at this time. Please try to
+                login again.
+              </p>
+              <RouterLink
+                class="btn btn-primary"
+                :to="{ name: 'login' }"
+              >
+                Login
+              </RouterLink>
             </div>
-            <form v-else class="card-body" @submit.prevent="onSubmit">
-              <h2 class="h4">Sign up for Renter</h2>
+            <form
+              v-else
+              class="card-body"
+              @submit.prevent="onSubmit"
+            >
+              <h2 class="h4">
+                Sign up for Renter
+              </h2>
               <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input v-model="email" type="email" name="email" class="form-control"
-                  :class="{ 'is-invalid': emailInvalid.length }" id="email"
-                  :aria-describedby="emailInvalid.length ? 'emailValidationFeedback' : undefined" required>
-                <div v-if="emailInvalid.length" id="emailValidationFeedback" class="invalid-feedback">
-                  <span v-for="message in emailInvalid" :key="message">{{ message }}</span>
+                <label
+                  for="email"
+                  class="form-label"
+                >Email</label>
+                <input
+                  id="email"
+                  v-model="email"
+                  type="email"
+                  name="email"
+                  class="form-control"
+                  :class="{ 'is-invalid': emailInvalid.length }"
+                  :aria-describedby="emailInvalid.length ? 'emailValidationFeedback' : undefined"
+                  required
+                >
+                <div
+                  v-if="emailInvalid.length"
+                  id="emailValidationFeedback"
+                  class="invalid-feedback"
+                >
+                  <span
+                    v-for="message in emailInvalid"
+                    :key="message"
+                  >{{ message }}</span>
                 </div>
               </div>
               <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input v-model="password" type="password" name="password" class="form-control" id="password"
+                <label
+                  for="password"
+                  class="form-label"
+                >Password</label>
+                <input
+                  id="password"
+                  v-model="password"
+                  type="password"
+                  name="password"
+                  class="form-control"
                   :class="{ 'is-invalid': passwordInvalid.length }"
-                  :aria-describedby="passwordInvalid.length ? 'passwordValidationFeedback' : undefined" required>
-                <div v-if="passwordInvalid.length" id="passwordValidationFeedback" class="invalid-feedback">
-                  <span v-for="message in passwordInvalid" :key="message">{{ message }}</span>
+                  :aria-describedby="passwordInvalid.length ? 'passwordValidationFeedback' : undefined"
+                  required
+                >
+                <div
+                  v-if="passwordInvalid.length"
+                  id="passwordValidationFeedback"
+                  class="invalid-feedback"
+                >
+                  <span
+                    v-for="message in passwordInvalid"
+                    :key="message"
+                  >{{ message }}</span>
                 </div>
               </div>
               <div class="mb-3">
-                <label for="password" class="form-label">Repeat password</label>
-                <input v-model="repeatPassword" type="password" name="repeatPassword" class="form-control"
+                <label
+                  for="password"
+                  class="form-label"
+                >Repeat password</label>
+                <input
                   id="repeatPassword"
-                  :aria-describedby="repeatPasswordInvalid ? 'repeatPasswordValidationFeedback' : undefined" required>
-                <div v-if="repeatPasswordInvalid" id="repeatPasswordValidationFeedback" class="invalid-feedback">
+                  v-model="repeatPassword"
+                  type="password"
+                  name="repeatPassword"
+                  class="form-control"
+                  :aria-describedby="repeatPasswordInvalid ? 'repeatPasswordValidationFeedback' : undefined"
+                  required
+                >
+                <div
+                  v-if="repeatPasswordInvalid"
+                  id="repeatPasswordValidationFeedback"
+                  class="invalid-feedback"
+                >
                   {{ repeatPasswordInvalid }}
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary" data-test="submit">Sign up</button>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                data-test="submit"
+              >
+                Sign up
+              </button>
             </form>
           </CardContainer>
         </div>

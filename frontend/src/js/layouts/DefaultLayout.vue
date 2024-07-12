@@ -11,9 +11,9 @@ defineProps({
 </script>
 
 <template>
-    <AppHeader />
-    <main class="bg-body-secondary">
-        <slot></slot>
-    </main>
-    <AppFooter v-if="showFooter" />
+  <AppHeader />
+  <main class="bg-body-secondary">
+    <slot />
+  </main>
+  <AppFooter v-if="showFooter" />
 </template>

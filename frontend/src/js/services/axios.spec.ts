@@ -4,7 +4,7 @@ import axios from '@/services/axios';
 import { ref } from 'vue';
 
 vi.mock('@vueuse/core', () => ({
-  useStorage: vi.fn()
+  useStorage: vi.fn(),
 }));
 
 const useStorage = vi.spyOn(vueUse, 'useStorage');

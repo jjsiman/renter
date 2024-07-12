@@ -34,21 +34,30 @@ async function fetchCurrentUser() {
 </script>
 
 <template>
-    <DefaultLayout :show-footer="true">
-        <div class="container-xxl py-5">
-            <div class="row">
-                <div class="col-10 col-sm-6 offset-1 offset-sm-3">
-                    <ProfileForm v-if="user" :user="user"></ProfileForm>
-                    <div v-else-if="error" data-test="error">
-                        {{ error }}
-                    </div>
-                    <div v-else-if="loading" data-test="loading">
-                        Loading profile...
-                    </div>
-                </div>
-            </div>
+  <DefaultLayout :show-footer="true">
+    <div class="container-xxl py-5">
+      <div class="row">
+        <div class="col-10 col-sm-6 offset-1 offset-sm-3">
+          <ProfileForm
+            v-if="user"
+            :user="user"
+          />
+          <div
+            v-else-if="error"
+            data-test="error"
+          >
+            {{ error }}
+          </div>
+          <div
+            v-else-if="loading"
+            data-test="loading"
+          >
+            Loading profile...
+          </div>
         </div>
-    </DefaultLayout>
+      </div>
+    </div>
+  </DefaultLayout>
 </template>
 
 <style lang="scss"></style>

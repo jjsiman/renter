@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useStorage } from '@vueuse/core';
 
 const instance = axios.create({
-  baseURL: 'api/'
+  baseURL: '/api/',
 });
 
 instance.interceptors.request.use((config) => {
