@@ -1,6 +1,7 @@
 // From the Bootstrap docs
-@import './fonts.scss';
-@import "./variables.scss";
+@import "styles/fonts";
+@import "styles/variables";
+@import "bootstrap/scss/root";
 
 // Include any other parts as needed
 @import "bootstrap/scss/utilities";
@@ -16,9 +17,10 @@
 @import "bootstrap/scss/utilities/api";
 
 // Add additional custom code here
-@import 'bootstrap/scss/buttons';
-@import 'bootstrap/scss/forms';
-@import 'bootstrap/scss/alert';
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/alert";
+@import "bootstrap/scss/list-group";
 
 // Bootstrap Icons
-@import 'bootstrap-icons/font/bootstrap-icons.min.css';
+@import "bootstrap-icons/font/bootstrap-icons.min.css";

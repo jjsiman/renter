@@ -48,11 +48,9 @@ import CollapseContent from '@/components/CollapseContent.vue';
 </template>
 
 <style lang="scss">
-@import 'styles/variables';
-
 // Use bootstrap-icon list icon
 $navbar-dark-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-list' viewBox='0 0 16 16'><path fill-rule='evenodd' fill='#{$navbar-dark-icon-color}' d='M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5'/></svg>");
 
-@import 'bootstrap/scss/nav';
-@import 'bootstrap/scss/navbar';
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
 </style>

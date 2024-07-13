@@ -59,5 +59,3 @@ async function fetchCurrentUser() {
     </div>
   </DefaultLayout>
 </template>
-
-<style lang="scss"></style>

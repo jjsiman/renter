@@ -5,6 +5,5 @@
 </template>
 
 <style lang="scss">
-@import 'styles/variables';
-@import 'bootstrap/scss/card';
+@import "bootstrap/scss/card";
 </style>
