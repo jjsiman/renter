@@ -5,6 +5,12 @@ import stylistic from '@stylistic/eslint-plugin';
 import tseslint from 'typescript-eslint';
 
 export default [
+  {
+    ignores: [
+      'src/coverage/',
+      'src/dist/',
+    ],
+  },
   stylistic.configs.customize({
     semi: true,
   }),
