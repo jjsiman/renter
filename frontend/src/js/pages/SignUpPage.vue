@@ -4,9 +4,13 @@ import axios from '@/services/axios';
 import CardContainer from '@/components/CardContainer.vue';
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
 import { isAxiosError } from 'axios';
-import type { SignupError } from '@/types/accounts';
 import { useAuth } from '@/stores/auth';
 import { useRouter } from 'vue-router';
+
+export interface SignupError {
+  email?: string[];
+  password?: string[];
+}
 
 const auth = useAuth();
 const router = useRouter();

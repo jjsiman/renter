@@ -1,16 +1,16 @@
 import { expect, test } from 'vitest';
+import PaginationContainer, { PaginationContainerProps } from '@/components/PaginationContainer.vue';
 import { mount } from '@vue/test-utils';
 
-import PaginationContainer from '@/components/PaginationContainer/PaginationContainer.vue';
-import type { PaginationContainerProps } from '@/components/PaginationContainer/PaginationContainer.d.ts';
-
 const createWrapper = (props: PaginationContainerProps, initialModelValue: number) => {
+  const componentProps = {
+    ...props,
+    'modelValue': initialModelValue,
+    'onUpdate:modelValue': (e: number) => wrapper.setProps({ modelValue: e }),
+  };
+
   const wrapper = mount(PaginationContainer, {
-    props: {
-      ...props,
-      'modelValue': initialModelValue,
-      'onUpdate:modelValue': e => wrapper.setProps({ modelValue: e }),
-    },
+    props: componentProps,
   });
   return wrapper;
 };

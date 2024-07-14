@@ -1,8 +1,12 @@
 import axios from '@/services/axios';
 import { computed } from 'vue';
 import { defineStore } from 'pinia';
-import type { TokenResponse } from '@/types/accounts';
 import { useStorage } from '@vueuse/core';
+
+export interface TokenResponse {
+  token: string;
+  expiry: string;
+}
 
 export const useAuth = defineStore('auth', () => {
   const token = useStorage('token', '');

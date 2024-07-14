@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { PaginationContainerProps } from '@/components/PaginationContainer/PaginationContainer.d.ts';
+
+export interface PaginationContainerProps {
+  label: string;
+  totalResults: number;
+  pageSize?: number;
+}
 
 const currentPage = defineModel<number>({ required: true });
 

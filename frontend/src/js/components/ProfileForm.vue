@@ -2,7 +2,10 @@
 import axios from '@/services/axios';
 import CardContainer from '@/components/CardContainer.vue';
 import { ref } from 'vue';
-import type { UserProfile } from '@/types/accounts';
+
+interface UserProfile {
+  email: string;
+}
 
 const props = defineProps<{
   user: UserProfile;
