@@ -17,8 +17,8 @@ export default defineConfig(() => ({
     preprocessorOptions: {
       scss: {
         additionalData: '@import "styles/variables";',
-      }
-    }
+      },
+    },
   },
   server: {
     host: '0.0.0.0',
@@ -33,10 +33,10 @@ export default defineConfig(() => ({
         secure: false,
         ws: true,
         rewrite: (path: string) => path.replace(/^\/api/, ''),
-      }
-    }
+      },
+    },
   },
   test: {
     environment: 'jsdom',
-  }
+  },
 }));
