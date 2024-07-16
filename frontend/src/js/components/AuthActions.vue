@@ -14,36 +14,44 @@ function onLogout() {
 <template>
   <ul class="navbar-nav">
     <template v-if="auth.isAuthenticated">
-      <RouterLink
-        class="nav-link"
-        :to="{ name: 'profile' }"
-        data-test="profile"
-      >
-        Profile
-      </RouterLink>
-      <button
-        class="nav-link me-2"
-        data-test="logout"
-        @click="onLogout"
-      >
-        Logout
-      </button>
+      <li>
+        <RouterLink
+          class="nav-link"
+          :to="{ name: 'profile' }"
+          data-test="profile"
+        >
+          Profile
+        </RouterLink>
+      </li>
+      <li>
+        <button
+          class="nav-link me-2"
+          data-test="logout"
+          @click="onLogout"
+        >
+          Logout
+        </button>
+      </li>
     </template>
     <template v-else>
-      <RouterLink
-        class="btn btn-primary me-2"
-        :to="{ name: 'login' }"
-        data-test="login"
-      >
-        Login
-      </RouterLink>
-      <RouterLink
-        class="btn btn-light"
-        :to="{ name: 'signup' }"
-        data-test="signup"
-      >
-        Sign up
-      </RouterLink>
+      <li>
+        <RouterLink
+          class="btn btn-primary me-2"
+          :to="{ name: 'login' }"
+          data-test="login"
+        >
+          Login
+        </RouterLink>
+      </li>
+      <li>
+        <RouterLink
+          class="btn btn-light"
+          :to="{ name: 'signup' }"
+          data-test="signup"
+        >
+          Sign up
+        </RouterLink>
+      </li>
     </template>
   </ul>
 </template>

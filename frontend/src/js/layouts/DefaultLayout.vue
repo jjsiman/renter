@@ -12,7 +12,7 @@ defineProps({
 
 <template>
   <AppHeader />
-  <main class="bg-body-secondary">
+  <main>
     <slot />
   </main>
   <AppFooter v-if="showFooter" />

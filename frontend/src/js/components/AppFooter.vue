@@ -3,7 +3,7 @@
     class="bg-dark text-body"
     data-bs-theme="dark"
   >
-    <div class="container-xxl py-4 sticky-bottom">
+    <div class="container-xxl py-4">
       <div class="row">
         <div class="col-6 col-sm-4">
           <RouterLink
