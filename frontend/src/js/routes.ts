@@ -1,10 +1,11 @@
-import AboutPage from '@/pages/AboutPage.vue';
-import HomePage from '@/pages/HomePage.vue';
-import LoginPage from '@/pages/LoginPage.vue';
-import ProfilePage from '@/pages/ProfilePage.vue';
 import { RouteLocationNormalized } from 'vue-router';
-import SignUpPage from '@/pages/SignUpPage.vue';
 import { useAuth } from '@/stores/auth';
+
+const AboutPage = () => import('@/pages/AboutPage.vue');
+const HomePage = () => import('@/pages/HomePage.vue');
+const LoginPage = () => import('@/pages/LoginPage.vue');
+const ProfilePage = () => import('@/pages/ProfilePage.vue');
+const SignUpPage = () => import('@/pages/SignUpPage.vue');
 
 export const isAuthenticated = (to: RouteLocationNormalized) => {
   const auth = useAuth();
