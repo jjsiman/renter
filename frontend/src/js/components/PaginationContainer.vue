@@ -15,14 +15,13 @@ const props = withDefaults(defineProps<PaginationContainerProps>(), {
 
 const pages = computed(() => {
   if (props.pageSize <= 0) {
-    return [];
+    return 0;
   }
-  const length = props.totalResults / props.pageSize;
-  return Array.from({ length: Math.ceil(length) }, (_, i) => ++i);
+  return Math.ceil(props.totalResults / props.pageSize);
 });
 
 const disablePrevious = computed(() => currentPage.value <= 1);
-const disableNext = computed(() => currentPage.value >= pages.value.length);
+const disableNext = computed(() => currentPage.value >= pages.value);
 const isCurrentPage = (page: number) => currentPage.value === page;
 </script>
 
