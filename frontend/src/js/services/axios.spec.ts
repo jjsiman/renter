@@ -1,20 +1,14 @@
-import * as vueUse from '@vueuse/core';
 import { afterEach, expect, test, vi } from 'vitest';
 import axios from '@/services/axios';
-import { ref } from 'vue';
 
-vi.mock('@vueuse/core', () => ({
-  useStorage: vi.fn(),
-}));
-
-const useStorage = vi.spyOn(vueUse, 'useStorage');
+const getItem = vi.spyOn(Storage.prototype, 'getItem');
 
 afterEach(() => {
   vi.resetAllMocks();
 });
 
 test('token is added to headers when present', async () => {
-  useStorage.mockImplementation(() => ref('abc'));
+  getItem.mockImplementation(() => 'abc');
 
   // @ts-expect-error handlers does not exist in interface: https://github.com/axios/axios/pull/5551
   const response = axios.interceptors.request.handlers[0].fulfilled({ headers: {} });
@@ -22,7 +16,7 @@ test('token is added to headers when present', async () => {
 });
 
 test('token is not added if not present', async () => {
-  useStorage.mockImplementation(() => ref(''));
+  getItem.mockImplementation(() => '');
 
   // @ts-expect-error handlers does not exist in interface: https://github.com/axios/axios/pull/5551
   const response = axios.interceptors.request.handlers[0].fulfilled({ headers: {} });
