@@ -7,8 +7,8 @@ import tseslint from 'typescript-eslint';
 export default [
   {
     ignores: [
-      'src/coverage/',
-      'src/dist/',
+      'coverage/',
+      'dist/',
     ],
   },
   stylistic.configs.customize({

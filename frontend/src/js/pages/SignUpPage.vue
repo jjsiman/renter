@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import axios from '@/services/axios';
-import CardContainer from '@/components/CardContainer.vue';
+import CardContainer from '@bc/CardContainer.vue';
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
 import { isAxiosError } from 'axios';
 import { useAuth } from '@/stores/auth';

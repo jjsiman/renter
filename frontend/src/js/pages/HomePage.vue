@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CardContainer from '@/components/CardContainer.vue';
+import CardContainer from '@bc/CardContainer.vue';
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
 </script>
 

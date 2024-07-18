@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import axios from '@/services/axios';
-import CardContainer from '@/components/CardContainer.vue';
+import CardContainer from '@bc/CardContainer.vue';
 import { ref } from 'vue';
 
 interface UserProfile {

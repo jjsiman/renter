@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import CollapseContent from '@/components/CollapseContent.vue';
+import CollapseContent from '@bc/CollapseContent.vue';
 import { mount } from '@vue/test-utils';
 
 test('should render', () => {

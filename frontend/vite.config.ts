@@ -8,13 +8,14 @@ export default defineConfig(() => ({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src/js', import.meta.url)),
-      'styles': fileURLToPath(new URL('./src/scss', import.meta.url)),
+      '@styles': fileURLToPath(new URL('./src/scss', import.meta.url)),
+      '@bc': fileURLToPath(new URL('./src/js/bootstrap-components', import.meta.url)),
     },
   },
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "styles/variables";',
+        additionalData: '@import "@styles/variables";',
       },
     },
   },

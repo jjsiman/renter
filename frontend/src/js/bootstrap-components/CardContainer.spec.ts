@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import CardContainer from '@/components/CardContainer.vue';
+import CardContainer from '@bc/CardContainer.vue';
 import { mount } from '@vue/test-utils';
 
 test('should render', () => {

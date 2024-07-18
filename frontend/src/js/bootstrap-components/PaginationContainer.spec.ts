@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import PaginationContainer, { PaginationContainerProps } from '@/components/PaginationContainer.vue';
+import PaginationContainer, { PaginationContainerProps } from '@bc/PaginationContainer.vue';
 import { mount } from '@vue/test-utils';
 
 const createWrapper = (props: PaginationContainerProps, initialModelValue: number) => {
