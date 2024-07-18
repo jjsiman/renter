@@ -3,6 +3,8 @@ import { useAuth } from '@/stores/auth';
 
 const AboutPage = () => import('@/pages/AboutPage.vue');
 const HomePage = () => import('@/pages/HomePage.vue');
+const ListingPage = () => import('@/pages/ListingPage.vue');
+const ListingsPage = () => import('@/pages/ListingsPage.vue');
 const LoginPage = () => import('@/pages/LoginPage.vue');
 const ProfilePage = () => import('@/pages/ProfilePage.vue');
 const SignUpPage = () => import('@/pages/SignUpPage.vue');
@@ -33,6 +35,21 @@ export const routes = [
     name: 'profile',
     component: ProfilePage,
     beforeEnter: [isAuthenticated],
+  },
+  {
+    path: '/listings',
+    children: [
+      {
+        path: '',
+        name: 'listing-list',
+        component: ListingsPage,
+      },
+      {
+        path: ':id',
+        name: 'listing-detail',
+        component: ListingPage,
+      },
+    ],
   },
   {
     path: '/login',

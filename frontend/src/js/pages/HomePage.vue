@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import CardContainer from '@bc/CardContainer.vue';
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const query = ref('');
 </script>
 
 <template>
   <DefaultLayout :show-footer="true">
-    <section class="container-fluid mb-5 pt-5">
+    <section class="container-fluid bg-body-secondary mb-5 pt-5">
       <div class="row">
         <div class="col">
           <h1 class="text-center display-4 fw-medium">
@@ -16,14 +22,42 @@ import DefaultLayout from '@/layouts/DefaultLayout.vue';
           </p>
         </div>
       </div>
+      <div class="row justify-content-center py-5">
+        <div class="col col-sm-6">
+          <form
+            @submit.prevent="router.push({ name: 'listing-list', query: { q: query }})"
+          >
+            <div class="input-group input-group-lg">
+              <button
+                type="submit"
+                class="btn btn-primary"
+              >
+                <i class="bi-search text-white"><span class="visually-hidden">Search</span></i>
+              </button>
+              <input
+                id="listingSearch"
+                v-model="query"
+                type="text"
+                class="form-control"
+                placeholder="Search active listings"
+                aria-label="search"
+              >
+            </div>
+          </form>
+        </div>
+      </div>
     </section>
-    <section class="container-fluid mb-5">
+    <section
+      class="
+            container-fluid
+            mb-5"
+    >
       <div class="row justify-content-center g-3 pb-4 text-center">
         <div class="col col-sm-3">
           <CardContainer class="h-100 shadow">
             <div class="card-body d-flex flex-column">
               <div class="card-text">
-                <i class="bi-shield-slash-fill text-primary fs-1" />
+                <i class="bi-shield-slash-fill text-info fs-1" />
               </div>
               <div class="card-text w-100">
                 No ads
@@ -35,7 +69,7 @@ import DefaultLayout from '@/layouts/DefaultLayout.vue';
           <CardContainer class="h-100 shadow">
             <div class="card-body d-flex flex-column">
               <div class="card-text">
-                <i class="bi-house-door-fill text-primary fs-1" />
+                <i class="bi-house-door-fill text-info fs-1" />
               </div>
               <div class="card-text w-100">
                 Floorplan required
@@ -47,7 +81,7 @@ import DefaultLayout from '@/layouts/DefaultLayout.vue';
           <CardContainer class="h-100 shadow">
             <div class="card-body d-flex flex-column">
               <div class="card-text">
-                <i class="bi-clipboard-check-fill text-primary  fs-1" />
+                <i class="bi-clipboard-check-fill text-info  fs-1" />
               </div>
               <div class="card-text w-100">
                 Satisfaction guaranteed

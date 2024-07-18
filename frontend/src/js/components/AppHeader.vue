@@ -36,6 +36,14 @@ import CollapseContent from '@bc/CollapseContent.vue';
                   Home
                 </RouterLink>
               </li>
+              <li>
+                <RouterLink
+                  class="nav-link"
+                  :to="{ name: 'listing-list' }"
+                >
+                  Listings
+                </RouterLink>
+              </li>
             </ul>
             <div class="d-flex">
               <AuthActions />
