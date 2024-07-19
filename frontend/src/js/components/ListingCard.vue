@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import CardContainer from '@bc/CardContainer.vue';
+import { faBath } from '@fortawesome/free-solid-svg-icons/faBath';
+import { faBed } from '@fortawesome/free-solid-svg-icons/faBed';
+import { faMoneyBill } from '@fortawesome/free-solid-svg-icons/faMoneyBill';
+import { faVectorSquare } from '@fortawesome/free-solid-svg-icons/faVectorSquare';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import PlaceholderWrapper from '@bc/PlaceholderWrapper.vue';
 import { useI18n } from 'vue-i18n';
 
@@ -72,25 +77,42 @@ defineProps<{
             class="list-group-item"
             data-test="price"
           >
-            <i class="bi-cash-stack me-2"><span class="visually-hidden">Price</span></i> {{ n(+listing.price, 'currency') }}/month
+            <FontAwesomeIcon
+              fixed-width
+              :icon="faMoneyBill"
+              class="me-2"
+            />
+            <span class="visually-hidden">Price</span> {{ n(+listing.price, 'currency') }}/month
           </li>
           <li
             class="list-group-item"
             data-test="bedrooms"
           >
-            <i class="bi-moon-stars-fill me-2" /> {{ listing.property.bedrooms }} {{ t('bedroom', listing.property.bedrooms) }}
+            <FontAwesomeIcon
+              fixed-width
+              :icon="faBed"
+              class="me-2"
+            /> {{ listing.property.bedrooms }} {{ t('bedroom', listing.property.bedrooms) }}
           </li>
           <li
             class="list-group-item"
             data-test="bathrooms"
           >
-            <i class="bi-droplet me-2" /> {{ listing.property.bathrooms }} {{ t('bathroom', listing.property.bathrooms) }}
+            <FontAwesomeIcon
+              fixed-width
+              :icon="faBath"
+              class="me-2"
+            /> {{ listing.property.bathrooms }} {{ t('bathroom', listing.property.bathrooms) }}
           </li>
           <li
             class="list-group-item"
             data-test="squareFootage"
           >
-            <i class="bi-rulers me-2"><span class="visually-hidden">Square Footage</span></i> {{ listing.property.square_footage }} sq. ft.
+            <FontAwesomeIcon
+              fixed-width
+              :icon="faVectorSquare"
+              class="me-2"
+            /><span class="visually-hidden">Square Footage</span> {{ listing.property.square_footage }} sq. ft.
           </li>
         </ul>
       </div>

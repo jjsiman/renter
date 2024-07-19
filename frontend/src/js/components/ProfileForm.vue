@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import axios from '@/services/axios';
 import CardContainer from '@bc/CardContainer.vue';
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons/faCircleCheck';
+import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons/faCircleExclamation';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { ref } from 'vue';
 
 interface UserProfile {
@@ -182,14 +185,14 @@ async function onSubmit() {
             class="text-success me-3"
             data-test="success"
           >
-            <i class="bi bi-check-circle" /> Saved
+            <FontAwesomeIcon :icon="faCircleCheck" /> Saved
           </div>
           <div
             v-if="error"
             class="text-danger me-3"
             data-test="failed"
           >
-            <i class="bi bi-exclamation-circle" /> Failed
+            <FontAwesomeIcon :icon="faCircleExclamation" /> Failed
           </div>
           <button
             type="submit"

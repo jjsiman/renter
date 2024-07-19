@@ -3,6 +3,8 @@ import axios, { PaginatedListResponse } from '@/services/axios';
 import { ref, watch } from 'vue';
 import { stringifyQuery, useRoute } from 'vue-router';
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import type { Listing } from '@/components/ListingCard.vue';
 import PaginationContainer from '@bc/PaginationContainer.vue';
 import PlaceholderWrapper from '@bc/PlaceholderWrapper.vue';
@@ -80,12 +82,17 @@ async function fetchListings() {
                 type="text"
                 class="form-control"
                 aria-label="search"
+                placeholder="Search"
               >
               <button
                 type="submit"
                 class="btn btn-primary"
               >
-                <i class="bi-search text-white"><span class="visually-hidden">Search</span></i>
+                <FontAwesomeIcon
+                  :icon="faMagnifyingGlass"
+                  size="1x"
+                  class=" align-middle text-white"
+                /><span class="visually-hidden">Search</span>
               </button>
             </div>
           </form>

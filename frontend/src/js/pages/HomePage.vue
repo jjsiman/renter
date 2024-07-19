@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import CardContainer from '@bc/CardContainer.vue';
 import DefaultLayout from '@/layouts/DefaultLayout.vue';
+import { faClipboardCheck } from '@fortawesome/free-solid-svg-icons/faClipboardCheck';
+import { faHouseCircleCheck } from '@fortawesome/free-solid-svg-icons/faHouseCircleCheck';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons/faMagnifyingGlass';
+import { faUserShield } from '@fortawesome/free-solid-svg-icons/faUserShield';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -32,7 +37,11 @@ const query = ref('');
                 type="submit"
                 class="btn btn-primary"
               >
-                <i class="bi-search text-white"><span class="visually-hidden">Search</span></i>
+                <FontAwesomeIcon
+                  :icon="faMagnifyingGlass"
+                  size="1x"
+                  class=" align-middle text-white"
+                /><span class="visually-hidden">Search</span>
               </button>
               <input
                 id="listingSearch"
@@ -56,10 +65,14 @@ const query = ref('');
         <div class="col col-sm-3">
           <CardContainer class="h-100 shadow">
             <div class="card-body d-flex flex-column">
-              <div class="card-text">
-                <i class="bi-shield-slash-fill text-info fs-1" />
+              <div class="card-text p-3">
+                <FontAwesomeIcon
+                  :icon="faUserShield"
+                  size="3x"
+                  class="text-info"
+                />
               </div>
-              <div class="card-text w-100">
+              <div class="h5 card-text w-100">
                 No ads
               </div>
             </div>
@@ -68,10 +81,14 @@ const query = ref('');
         <div class="col col-sm-3">
           <CardContainer class="h-100 shadow">
             <div class="card-body d-flex flex-column">
-              <div class="card-text">
-                <i class="bi-house-door-fill text-info fs-1" />
+              <div class="card-text p-3">
+                <FontAwesomeIcon
+                  :icon="faHouseCircleCheck"
+                  size="3x"
+                  class="text-info"
+                />
               </div>
-              <div class="card-text w-100">
+              <div class="h5 card-text w-100">
                 Floorplan required
               </div>
             </div>
@@ -80,10 +97,14 @@ const query = ref('');
         <div class="col col-sm-3">
           <CardContainer class="h-100 shadow">
             <div class="card-body d-flex flex-column">
-              <div class="card-text">
-                <i class="bi-clipboard-check-fill text-info  fs-1" />
+              <div class="card-text p-3">
+                <FontAwesomeIcon
+                  :icon="faClipboardCheck"
+                  size="3x"
+                  class="text-info"
+                />
               </div>
-              <div class="card-text w-100">
+              <div class="h5 card-text w-100">
                 Satisfaction guaranteed
               </div>
             </div>
